@@ -60,18 +60,15 @@ void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int);
 
 
 /* Stack */
-void push_stack(stack_t **top, unsigned int line_number);
-void pall_stack(stack_t **top, unsigned int line_number);
-void free_stack(stack_t *top);
-void pint_stack(stack_t **top, unsigned int line_number);
-void pop_stack(stack_t **top, unsigned int line_number);
+void push_stack(stack_t **head, unsigned int line_number);
+void pall_stack(stack_t **head, unsigned int line_number);
+void free_stack(stack_t *head);
+void pint_stack(stack_t **head, unsigned int line_number);
+void pop_stack(stack_t **head, unsigned int line_number);
 
 /* stack operations */
-void _swap(stack_t **top, unsigned int line);
-void _add(stack_t **top, unsigned int line);
-void _nop(stack_t **top, unsigned int line);
-
-/*stack4 */
-void pstr_stack(stack_t **top, unsigned int line_number);
+void _swap(stack_t **head, unsigned int line);
+void _add(stack_t **head, unsigned int line);
+void _nop(stack_t **head, unsigned int line);
 
 #endif /* _MONTY_H_ */
