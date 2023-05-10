@@ -15,7 +15,7 @@ void open_and_read(char **argv)
 	size_t len = 0;
 	size_t line_size;
 	unsigned int line_counter = 1;
-	stack_t *top = NULL;
+	stack_t *head = NULL;
 
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
@@ -37,19 +37,19 @@ void open_and_read(char **argv)
         /*p_func will receive the function to execute*/
 			p_func = get_op_code(command, line_counter);
      	/* p_func takes the place of the function to execute: push, pall, etc*/
-			p_func(&top, line_counter);
+			p_func(&head, line_counter);
 		}
 		else
 		{
 			p_func = get_op_code(token, line_counter);
-			p_func(&top, line_counter);
+			p_func(&head, line_counter);
 		}
 		line_counter++;
 	}
 	fclose(fp);
 	if (buf != NULL)
 		free(buf);
-	free_stack(top);
+	free_stack(head);
 }
 /**
  * is_number - check if string received is int or not
