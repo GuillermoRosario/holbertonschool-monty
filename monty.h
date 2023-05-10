@@ -36,7 +36,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* error_handler functions */
+/* error_handler 1 */
 void error_arguments(void);
 void open_error(char **);
 void invalidInstruction_error(char *invInstruction, unsigned int line);
