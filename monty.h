@@ -39,5 +39,6 @@ void (*f)(stack_t **stack, unsigned int line_number);
 
 /* Stack */
 void push(stack_t** head, int value);
-void pall_stack(stack_t **top, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
 #endif

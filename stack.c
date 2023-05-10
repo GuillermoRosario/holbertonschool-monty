@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "monty.h"
 
+
+
 void push(stack_t** head, int value)
 {
     stack_t* newNode= (stack_t*)malloc(sizeof(stack_t));
