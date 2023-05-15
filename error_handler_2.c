@@ -39,8 +39,4 @@ void add_error(unsigned int line_number)
 	fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 }
-/**
- * sub_error - Print error if the stack contains less than two elements
- * @line_number: line
- * Return: void
- */
+
