@@ -11,20 +11,6 @@ void error_arguments(void)
 }
 
 /**
- * open_error -Main entry
- *Description: print message if its not possible to open the file
- * @argv: arguments received by main, ni this case te filename
- * Return: void
- **/
-void open_error(char **argv)
-{
-	char *filename = argv[1];
-
-	fprintf(stderr, "Error: Can't open file %s\n", filename);
-	exit(EXIT_FAILURE);
-}
-
-/**
  * invalidInstruction_error -Main entry
  *Description: print message if le to open the filehas an invalid instruction
  * @invInstruction: instruction
@@ -33,7 +19,7 @@ void open_error(char **argv)
  **/
 void invalidInstruction_error(char *op_code, unsigned int line_number)
 {
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op_code);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op_code);
 	exit(EXIT_FAILURE);
 }
 
@@ -45,7 +31,7 @@ void invalidInstruction_error(char *op_code, unsigned int line_number)
  **/
 void not_int_err(unsigned int line_number)
 {
-	fprintf(stderr, "L%u: usage: push integer\n", line_number);
+	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
 

@@ -7,7 +7,6 @@
 #include <string.h>
 #include <ctype.h>
 
-extern int n;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,7 +39,6 @@ typedef struct instruction_s
 
 /* error_handler 1 */
 void error_arguments(void);
-void open_error(char **argv);
 void invalidInstruction_error(char *op_code, unsigned int line_number);
 void not_int_err(unsigned int line_number);
 void malloc_error(void);

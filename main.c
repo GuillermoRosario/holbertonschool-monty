@@ -20,7 +20,10 @@ int main(int argc, char **argv)
 	FILE *doc = fopen(argv[1], "r");
 
 	if (doc == NULL)
-		open_error(argv);
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 
 	while (getline(&token, &size, doc) != -1)
 	{

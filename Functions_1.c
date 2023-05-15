@@ -11,7 +11,7 @@ void push_stack(stack_t **head, unsigned int line_number)
 {
 	/* obtain int arg */
 	int val;
-	char *arg = strtok(NULL, "\n");
+	char *arg = strtok(NULL, " \n");
 
 	if (arg == NULL)
 		not_int_err(line_number);
@@ -81,10 +81,10 @@ void free_stack(stack_t *head)
 void pint_stack(stack_t **head, unsigned int line_number)
 {
 
-	if (*head != NULL)
-		printf("%d\n", (*head)->n);
-	else
+	if (*head == NULL)
 		pint_error(line_number);
+
+	printf("%d\n", (*head)->n);
 }
 /**
  * pop_stack -print.
