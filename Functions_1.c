@@ -1,6 +1,5 @@
 #include "monty.h"
 
-int number;
 /**
  * push_stack -push (add) node to list.
  *Description: Function that push a new node at the beginning of stack_t stack
@@ -10,27 +9,31 @@ int number;
  **/
 void push_stack(stack_t **head, unsigned int line_number)
 {
-	stack_t *newNode;
+	/* obtain int arg */
+	int val;
+	char *arg = strtok(NULL, "\n");
 
-	(void) line_number;
-	newNode = malloc(sizeof(stack_t));
+	if (arg == NULL)
+		not_int_err(line_number);
 
-	if (newNode == NULL)
+	/* arg to int */
+	if (sscanf(arg, "%d", &val) != 1)
+		not_int_err(line_number);
+
+	/* new node */
+	stack_t *new_node = malloc(sizeof(stack_t));
+
+	if (new_node == NULL)
 		malloc_error();
 
-	newNode->n = number;
-	newNode->prev = NULL;
-	if (*head == NULL)  /* validate if empty stack */
-	{
-		newNode->next = NULL;
-		*head = newNode;
-	}
-	else /* if is not empty stack */
-	{
-	newNode->next = *head;
-	(*head)->prev = newNode;
-	*head = newNode;
-	}
+	new_node->n = val;
+	new_node->prev = NULL;
+
+	/* add node to stack */
+	if (*head != NULL)
+		(*head)->prev = new_node;
+	new_node->next = *head;
+	*head = new_node;
 }
 /**
  * pall_stack -print.
@@ -58,18 +61,15 @@ void pall_stack(stack_t **head, unsigned int line_number)
  **/
 void free_stack(stack_t *head)
 {
-	stack_t *temp;
+	stack_t *temp = head;
 
-	if (head == NULL)
-		return;
-
-	while (head != NULL)
+	while (temp != NULL)
 	{
-		temp = head;
-		head = head->next;
+		stack_t *next = temp->next;
+
 		free(temp);
+		temp = next;
 	}
-	free(head);
 }
 /**
  * pint_stack -print.
@@ -80,10 +80,9 @@ void free_stack(stack_t *head)
  **/
 void pint_stack(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp = *head;
 
-	if (tmp != NULL)
-		printf("%d\n", tmp->n);
+	if (*head != NULL)
+		printf("%d\n", (*head)->n);
 	else
 		pint_error(line_number);
 }
@@ -96,13 +95,14 @@ void pint_stack(stack_t **head, unsigned int line_number)
  **/
 void pop_stack(stack_t **head, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *tmp = *head;
 
-	tmp = *head;
 	if (*head == NULL)
 		pop_error(line_number);
 
-	tmp = tmp->next;
-	free(*head);
-	*head = tmp;
+	*head = (*head)->next;
+
+	if (*head != NULL)
+		(*head)->prev = NULL;
+	free(tmp);
 }

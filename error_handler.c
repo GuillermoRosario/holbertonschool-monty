@@ -9,6 +9,7 @@ void error_arguments(void)
 	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);
 }
+
 /**
  * open_error -Main entry
  *Description: print message if its not possible to open the file
@@ -22,6 +23,7 @@ void open_error(char **argv)
 	fprintf(stderr, "Error: Can't open file %s\n", filename);
 	exit(EXIT_FAILURE);
 }
+
 /**
  * invalidInstruction_error -Main entry
  *Description: print message if le to open the filehas an invalid instruction
@@ -29,22 +31,24 @@ void open_error(char **argv)
  * @line: line
  * Return: void
  **/
-void invalidInstruction_error(char *invInstruction, unsigned int line)
+void invalidInstruction_error(char *op_code, unsigned int line_number)
 {
-	fprintf(stderr, "L%u: unknown instruction %s\n", line, invInstruction);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, op_code);
 	exit(EXIT_FAILURE);
 }
+
 /**
  * not_int_err -Main entry
  *Description: print message if parameter received is not integer
  * @line: line
  * Return: void
  **/
-void not_int_err(unsigned int line)
+void not_int_err(unsigned int line_number)
 {
-	fprintf(stderr, "L%u: usage: push integer\n", line);
+	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
 }
+
 /**
  * malloc_error -Main entry
  *Description: print message if cant malloc anymore
