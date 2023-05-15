@@ -2,7 +2,7 @@
 
 /**
  * push_stack -push (add) node to list.
- *Description: Function that push a new node at the beginning of stack_t stack
+ * Description: Function that push a new node at the beginning of stack_t stack
  * @head: element at the top of the stack (head)
  * @line_number: constant int value in the structure
  * Return: void
@@ -37,7 +37,7 @@ void push_stack(stack_t **head, unsigned int line_number)
 }
 /**
  * pall_stack -print.
- *Description: Function that print the elements of a stack
+ * Description: Function that print the elements of a stack
  * @head: element at the top of the stack (head)
  * @line_number: constant int value in the structure
  * Return: void
@@ -55,7 +55,7 @@ void pall_stack(stack_t **head, unsigned int line_number)
 }
 /**
  * free_stack -free list.
- *Description: Function that frees a dlist_t list
+ * Description: Function that frees a dlist_t list
  * @head: top of the stack. (head)
  * Return: void
  **/

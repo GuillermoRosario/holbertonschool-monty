@@ -15,7 +15,8 @@ instruction_t operation[] = {
 /**
  * get_op_code - contain the function that will perform the operation
  * @token: operation code
- * @line: line readed
+ * @line_number: line readed
+ * @head: stack structure
  * Return: void
  */
 void get_op_code(char *token, unsigned int line_number, stack_t **head)

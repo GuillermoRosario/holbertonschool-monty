@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
- *_swap -main entry.
- *Description: Function that swaps the top 2 elements of stack
+ * _swap -main entry.
+ * Description: Function that swaps the top 2 elements of stack
  * @head: element at the top of the stack (head)
  * @line_number: constant int value in the structure
  * Return: void
@@ -19,7 +19,7 @@ void _swap(stack_t **head, unsigned int line_number)
 }
 /**
  *_add -main entry.
- *Description: Function that adds the top two elements of the stack
+ * Description: Function that adds the top two elements of the stack
  * @head: element at the top of the stack (head)
  * @line_number: constant int value in the structure
  * Return: void

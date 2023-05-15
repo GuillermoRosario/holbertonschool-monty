@@ -1,7 +1,7 @@
 #include"monty.h"
 /**
  * pint_error - print error message if the stack is empty
- * @line: line
+ * @line_number: line
  * Return: void
  */
 void pint_error(unsigned int line_number)
@@ -11,7 +11,7 @@ void pint_error(unsigned int line_number)
 }
 /**
  * pop_error - print error message if the stack is empty
- * @line: line
+ * @line_number: line
  * Return: void
  */
 void pop_error(unsigned int line_number)
@@ -21,7 +21,7 @@ void pop_error(unsigned int line_number)
 }
 /**
  * swap_error - print err msg if stack contains less than two elements
- * @line: line
+ * @line_number: line
  * Return: void
  */
 void swap_error(unsigned int line_number)
@@ -31,7 +31,7 @@ void swap_error(unsigned int line_number)
 }
 /**
  * add_error - Print error if the stack contains less than two elements
- * @line: line
+ * @line_number: line
  * Return: void
  */
 void add_error(unsigned int line_number)
@@ -41,6 +41,6 @@ void add_error(unsigned int line_number)
 }
 /**
  * sub_error - Print error if the stack contains less than two elements
- * @line: line
+ * @line_number: line
  * Return: void
  */

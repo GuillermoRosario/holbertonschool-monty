@@ -1,7 +1,7 @@
 #include"monty.h"
 /**
  * error_arguments -Main entry
- *Description: If user doesnt give file or more than valid arguments
+ * Description: If user doesnt give file or more than valid arguments
  * Return: void
  **/
 void error_arguments(void)
@@ -12,9 +12,9 @@ void error_arguments(void)
 
 /**
  * invalidInstruction_error -Main entry
- *Description: print message if le to open the filehas an invalid instruction
- * @invInstruction: instruction
- * @line: line
+ * Description: print message if le to open the filehas an invalid instruction
+ * @op_code: instruction
+ * @line_number: line
  * Return: void
  **/
 void invalidInstruction_error(char *op_code, unsigned int line_number)
@@ -25,8 +25,8 @@ void invalidInstruction_error(char *op_code, unsigned int line_number)
 
 /**
  * not_int_err -Main entry
- *Description: print message if parameter received is not integer
- * @line: line
+ * Description: print message if parameter received is not integer
+ * @line_number: line
  * Return: void
  **/
 void not_int_err(unsigned int line_number)
@@ -37,7 +37,7 @@ void not_int_err(unsigned int line_number)
 
 /**
  * malloc_error -Main entry
- *Description: print message if cant malloc anymore
+ * Description: print message if cant malloc anymore
  * Return: void
  **/
 void malloc_error(void)
