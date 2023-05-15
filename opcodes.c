@@ -1,14 +1,15 @@
 #include "monty.h"
+
 /**
  * get_op_code - contain the function that will perform the operation
  * @token: operation code
  * @line: line readed
  * Return: void
  */
-void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int)
+void get_op_code(char *token, unsigned int line_number, stack_t **head)
 {
-/*arreglo de estructuras*/
-	int i;
+
+	/*arreglo de estructuras*/
 	instruction_t operation[] = {
 		{"push", push_stack},
 		{"pall", pall_stack},
@@ -19,13 +20,23 @@ void (*get_op_code(char *token, unsigned int line)) (stack_t **, unsigned int)
 		{"add", _add},
 		{NULL, NULL}
 	};
+	int i;
+	/* Tokenization process */
+	char *op_code = strtok(token, "\n");
+
+	if (op_code == NULL || op_code[0] == '#')
+		return;
+
+	/* get correct operation */
 	for (i = 0; operation[i].opcode != NULL; i++)
 	{
-		if (strcmp(token, operation[i].opcode) == 0)
+		if (strcmp(op_code, operation[i].opcode) == 0)
 		{
-			return (operation[i].f);
+			operation[i].f(head, line_number);
+			break;
 		}
 	}
-	invalidInstruction_error(token, line);
-	return (NULL);
+	/*chek if instruction is not known */
+	if (operation[i].opcode == NULL)
+	invalidInstruction_error(op_code, line_number);
 }

@@ -31,9 +31,11 @@ void _add(stack_t **head, unsigned int line_number)
 	if (*head == NULL || (*head)->next == NULL)
 		add_error(line_number);
 
-	tmp = (*head)->next;
-	tmp->n += (*head)->n;
-	pop_stack(head, line_number);
+	(*head)->next->n += (*head)->n;
+	tmp = *head;
+	*head = (*head)->next;
+	(*head)->prev = NULL;
+	free(tmp);
 }
 /**
  * _nop -main entry.
