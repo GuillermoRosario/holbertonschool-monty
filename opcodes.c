@@ -1,28 +1,29 @@
 #include "monty.h"
 
+/*structure*/
+instruction_t operation[] = {
+	{"push", push_stack},
+	{"pall", pall_stack},
+	{"pint", pint_stack},
+	{"pop", pop_stack},
+	{"swap", _swap},
+	{"nop", _nop},
+	{"add", _add},
+	{NULL, NULL}
+};
+
 /**
  * get_op_code - contain the function that will perform the operation
  * @token: operation code
- * @line: line readed
+ * @line_number: line readed
+ * @head: stack structure
  * Return: void
  */
 void get_op_code(char *token, unsigned int line_number, stack_t **head)
 {
-
-	/*arreglo de estructuras*/
-	instruction_t operation[] = {
-		{"push", push_stack},
-		{"pall", pall_stack},
-		{"pint", pint_stack},
-		{"pop", pop_stack},
-		{"swap", _swap},
-		{"nop", _nop},
-		{"add", _add},
-		{NULL, NULL}
-	};
 	int i;
 	/* Tokenization process */
-	char *op_code = strtok(token, "\n");
+	char *op_code = strtok(token, " \n");
 
 	if (op_code == NULL || op_code[0] == '#')
 		return;
@@ -38,5 +39,5 @@ void get_op_code(char *token, unsigned int line_number, stack_t **head)
 	}
 	/*chek if instruction is not known */
 	if (operation[i].opcode == NULL)
-	invalidInstruction_error(op_code, line_number);
+		invalidInstruction_error(op_code, line_number);
 }
